@@ -3,6 +3,7 @@ class Fish < Formula
   homepage "https://fishshell.com"
   url "https://github.com/fish-shell/fish-shell/releases/download/3.1.2/fish-3.1.2.tar.gz"
   sha256 "d5b927203b5ca95da16f514969e2a91a537b2f75bec9b21a584c4cd1c7aa74ed"
+  revision 1
 
   bottle do
     cellar :any_skip_relocation
@@ -30,6 +31,7 @@ class Fish < Formula
       -Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d
       -Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d
       -DSED=/usr/bin/sed
+      -DMAC_CODESIGN_ID=OFF
     ]
     system "cmake", ".", *std_cmake_args, *args
     system "make", "install"
